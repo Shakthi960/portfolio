@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Shakthi K - Internship Experience">
+    <title>Shakthi K - Internships</title>
+    <link rel="stylesheet" href="internships.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sirivennela&display=swap" rel="stylesheet" />
+    <link rel="icon" href="technology-icon-5.jpg" />
+</head>
+<body>
+    <nav>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <div class="quicklinks" id="quicklinks">
+            <a href="#about">About</a>
+            <a href="projects.html">Projects</a> 
+            <a href="internships.html">Internships</a>
+            <a href="#scrolltoeducation">Education</a>
+            <a href="#scrolltoskills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="p-p">
+        <h2>My Internships</h2>
+    </div>
+
+    <section class="internships-page">
+        <div class="internship-container">
+            <div class="internship-item">
+                <div class="internship-image">
+                    <img src="intern-1.webp" alt="Python with AI & ML Internship" />
+                </div>
+                <div class="internship-content">
+                    <h3>Python with AI & ML Internship</h3>
+                    <p class="company">Polanzo Tech Solutions, Chennai</p>
+                    <p class="duration">July 2024</p>
+                    <div class="internship-details">
+                        <p>Completed an internship on Python with AI and ML, gaining hands-on experience in:</p>
+                        <ul>
+                            <li>Basic machine learning concepts and algorithms</li>
+                            <li>Python-based model development</li>
+                            <li>Data preprocessing and visualization</li>
+                            <li>Implementation of regression and classification models</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="internship-item">
+                <div class="internship-image">
+                    <img src="intern-2_page-0001.webp" alt="AI Internship at Polenza" />
+                </div>
+                <div class="internship-content">
+                    <h3>Artificial Intelligence Internship</h3>
+                    <p class="company">Polenza Tech Solutions, Chennai</p>
+                    <p class="duration">June 2025</p>
+                    <div class="internship-details">
+                        <p>Completed an offline internship on Artificial Intelligence, gaining foundational knowledge in:</p>
+                        <ul>
+                            <li>Core AI concepts and algorithms</li>
+                            <li>Practical exposure to real-world AI applications</li>
+                            <li>Problem-solving with AI approaches</li>
+                            <li>Ethical considerations in AI development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Shakthi K | All Rights Reserved</p>
+        <p><a href="index.html">← Back to Portfolio</a></p>
+    </footer>
+
+    <script>
+        // Toggle mobile menu with hamburger/close icon
+        const menuToggle = document.getElementById("menu-toggle");
+        const quicklinks = document.getElementById("quicklinks");
+        let menuOpen = false;
+
+        menuToggle.addEventListener("click", () => {
+            quicklinks.classList.toggle("show");
+            menuOpen = !menuOpen;
+            menuToggle.innerHTML = menuOpen ? "✕" : "&#9776;";
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll(".quicklinks a").forEach(link => {
+            link.addEventListener("click", () => {
+                quicklinks.classList.remove("show");
+                menuOpen = false;
+                menuToggle.innerHTML = "&#9776;";
+            });
+        });
+
+        // Scroll animations
+        const sections = document.querySelectorAll("section");
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.2,
+            }
+        );
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // nav scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } 
+            else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

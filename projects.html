@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Shakthi K - Projects">
+    <title>Shakthi K - Projects</title>
+    <link rel="stylesheet" href="projects.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sirivennela&display=swap" rel="stylesheet" />
+    <link rel="icon" href="technology-icon-5.jpg" />
+</head>
+<body>
+    <nav>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <div class="quicklinks" id="quicklinks">
+            <a href="#about">About</a>
+            <a href="projects.html">Projects</a> 
+            <a href="internships.html">Internships</a>
+            <a href="#scrolltoeducation">Education</a>
+            <a href="#scrolltoskills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="p-p">
+        <h2>My Projects</h2>
+    </div>
+
+    <section class="projects-page">
+        <div class="project-container">
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="gym-front_1.webp" alt="Gym Website" />
+                </div>
+                <div class="project-content">
+                    <h3>Gym Website</h3>
+                    <p class="technologies">HTML, CSS, JavaScript</p>
+                    <div class="project-details">
+                        <p>Developed and hosted a responsive gym website with a modern UI and mobile compatibility using GoDaddy hosting.</p>
+                        <ul>
+                            <li>Designed a user-friendly interface with modern aesthetics</li>
+                            <li>Implemented responsive design for all device sizes</li>
+                            <li>Integrated contact forms and class scheduling features</li>
+                            <li>Optimized for performance and search engines</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="http://vybefitnessstudio.com/" target="_blank" class="project-link">View Live Website</a>
+                        <a href="#" class="project-link">GitHub Repository</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="recipe-front.webp" alt="Recipe Generator" />
+                </div>
+                <div class="project-content">
+                    <h3>Personalized Recipe Generator</h3>
+                    <p class="technologies">Python, JavaScript, HTML, CSS</p>
+                    <div class="project-details">
+                        <p>Built an AI-powered food recipe generator that personalizes results based on user input using Python and JavaScript.</p>
+                        <ul>
+                            <li>Developed algorithm to suggest recipes based on available ingredients</li>
+                            <li>Implemented user preferences for dietary restrictions and cuisine types</li>
+                            <li>Created a clean, intuitive user interface</li>
+                            <li>Integrated with nutrition API for additional health information</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Demo</a>
+                        <a href="#" class="project-link">GitHub Repository</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Shakthi K | All Rights Reserved</p>
+        <p><a href="index.html">← Back to Portfolio</a></p>
+    </footer>
+
+    <script>
+        // Toggle mobile menu with hamburger/close icon
+        const menuToggle = document.getElementById("menu-toggle");
+        const quicklinks = document.getElementById("quicklinks");
+        let menuOpen = false;
+
+        menuToggle.addEventListener("click", () => {
+            quicklinks.classList.toggle("show");
+            menuOpen = !menuOpen;
+            menuToggle.innerHTML = menuOpen ? "✕" : "&#9776;";
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll(".quicklinks a").forEach(link => {
+            link.addEventListener("click", () => {
+                quicklinks.classList.remove("show");
+                menuOpen = false;
+                menuToggle.innerHTML = "&#9776;";
+            });
+        });
+
+        // Scroll animations
+        const sections = document.querySelectorAll("section");
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.2,
+            }
+        );
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // nav scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } 
+            else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
